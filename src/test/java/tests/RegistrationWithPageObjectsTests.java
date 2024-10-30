@@ -1,8 +1,8 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+package tests;
+
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ByIdOrName;
+
 
 import java.io.File;
 
@@ -11,22 +11,24 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeFormTest {
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-    }
+public class RegistrationWithPageObjectsTests extends TestBase {
 
     @Test
-    void practiceTest() {
-        open("/automation-practice-form");
-        $("#firstName").setValue("Serje");
-        $("#lastName").setValue("Kowalski");
-        $("#userEmail").sendKeys("serje@gmail.com");
-        $("label[for='gender-radio-1']").click();
-        $("#userNumber").setValue("1234567890");
+    void registrationTest() {
+        String userName = "Serje";
+        String lastName = "Moroz";
+        String phone = "1234567890";
+
+        registrationPage.openPage()
+                .setFirstName(userName)
+                .setLastName(lastName)
+                .setEmail("serje@gmail.com")
+                .setGender("other")
+                .setPhone(phone);
+
+
+
+
         $("#dateOfBirthInput").click();
         $(".react-datepicker-popper").shouldBe((visible));
         $(".react-datepicker__year-select").click();
