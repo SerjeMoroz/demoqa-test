@@ -2,7 +2,12 @@ package tests;
 
 import com.codeborne.selenide.Browsers;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Driver;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.openqa.selenium.WebDriver;
 import pages.RegistrationPage;
 
 import static com.codeborne.selenide.Selenide.open;
@@ -14,9 +19,12 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = Browsers.CHROME;
-        open();
-        getWebDriver().manage().window().maximize();
+        Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
+    }
+
+    @AfterEach
+    void beforeEach() {
+        Selenide.closeWebDriver();
     }
 }
