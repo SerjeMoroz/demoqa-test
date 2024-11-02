@@ -1,10 +1,13 @@
-package tests;
+package examples;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import pages.RegistrationPage;
+
+import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 
 public class TestBase {
@@ -14,8 +17,9 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.fastSetValue = true;
-        Configuration.browserSize = "1920x1080";
+        Configuration.fastSetValue = false;
+        open();
+        getWebDriver().manage().window().maximize();
         Configuration.baseUrl = "https://demoqa.com";
     }
 

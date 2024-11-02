@@ -13,10 +13,8 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage {
 
-    CalendarComponent calendar = new CalendarComponent();
     RegistrationResultModal registrationresultmodal = new RegistrationResultModal();
 
-    private String titleText = "Student Registration Form";
     private SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -34,7 +32,7 @@ public class RegistrationPage {
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text(titleText));
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('#footer').remove()");
         return this;
@@ -55,7 +53,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setGender() {
+    public RegistrationPage setGender(String value) {
         gender.click();
         return this;
     }
@@ -64,9 +62,9 @@ public class RegistrationPage {
         phoneNumber.setValue(value);
         return this;
     }
-    public RegistrationPage setBirthDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(String dayOfBirth, String monthOfBirth, String yearOfBirth) {
         birthDate.click();
-        CalendarComponent.setDate(day, month, year);
+        CalendarComponent.setDate(dayOfBirth, monthOfBirth, yearOfBirth);
         return this;
     }
 
@@ -75,7 +73,7 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage uploadPicture() {
+    public RegistrationPage uploadPicture(String value) {
         $("#uploadPicture").uploadFile(new File("picture/Screenshot.png"));
         return this;
     }
@@ -116,6 +114,5 @@ public class RegistrationPage {
         closeModalButton.click();
         return this;
     }
-
 
 }

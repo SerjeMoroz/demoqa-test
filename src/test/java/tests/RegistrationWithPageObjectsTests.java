@@ -1,53 +1,43 @@
 package tests;
 
+import examples.Faker;
+import examples.TestBase;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import pages.RegistrationPage;
-import pages.components.RegistrationResultModal;
+import pages.components.TestData;
 
-
-import java.io.File;
-
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static pages.components.TestData.*;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
-    RegistrationPage registrationPage = new RegistrationPage();
-    RegistrationResultModal registrationResultModal = new RegistrationResultModal();
+    private final RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void registrationTest() {
-        String userName = "Serje";
-        String lastName = "Kowalski";
-        String phone = "1234567890";
-        String email = "serje@gmail.com";
 
         registrationPage.openPage()
                 .setFirstName(userName)
                 .setLastName(lastName)
                 .setEmail(email)
-                .setGender()
+                .setGender(gender)
                 .setPhone(phone)
-                .setBirthDate("16", "July", "2000")
+                .setBirthDate(dayOfBirth, monthOfBirth, yearOfBirth)
                 .clickHobbieCheckbox()
-                .uploadPicture()
-                .setAddress("pushkina-kolotushkina")
+                .uploadPicture(picture)
+                .setAddress(address)
                 .setState("Uttar Pradesh")
                 .setCity("Agra")
                 .submitButton();
 
 
-
-        registrationPage.verifyResultsModalAppears()
+                registrationPage.verifyResultsModalAppears()
                 .verifyResult("Student Name", userName + " " + lastName)
                 .verifyResult("Student Email", email)
-                .verifyResult("Gender", "other")
+                .verifyResult("Gender", gender)
                 .verifyResult("Mobile", phone)
-                .verifyResult("Date of Birth", "16 July,2000")
+                .verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
                 .verifyResult("Hobbies", "Music")
-                .verifyResult("Picture", "Screenshot.png")
-                .verifyResult("Address", "pushkina-kolotushkina")
+                .verifyResult("Picture", picture)
+                .verifyResult("Address", address)
                 .verifyResult("State and City", "Uttar Pradesh Agra")
                 .closeModal();
     }

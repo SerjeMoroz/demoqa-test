@@ -4,10 +4,10 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class CalendarComponent {
 
-    public static void setDate(String day, String month, String year) {
-        $(".react-datepicker__month-select").selectOption(month);
-        $(".react-datepicker__year-select").selectOption(year);
-        $(".react-datepicker__day--0" + day +
+    public static void setDate(String dayOfBirth, String monthOfBirth, String yearOfBirth) {
+        $(".react-datepicker__month-select").selectOption(monthOfBirth);
+        $(".react-datepicker__year-select").selectOption(yearOfBirth);
+        $(".react-datepicker__day--0" + dayOfBirth +
                 ":not(.react-datepicker__day--outside-month)").click();
     }
 }
