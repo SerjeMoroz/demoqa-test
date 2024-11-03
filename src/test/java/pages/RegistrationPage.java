@@ -27,7 +27,8 @@ public class RegistrationPage {
             currentAddress = $("#currentAddress"),
             stateButton = $("#state"),
             cityButton = $("#city"),
-            submitButton = $("#submit");
+            submitButton = $("#submit"),
+            selectState = $("#stateCity-wrapper");
 
 
     public RegistrationPage openPage() {
@@ -85,13 +86,13 @@ public class RegistrationPage {
 
     public RegistrationPage setState(String value) {
         stateButton.click();
-        $("#stateCity-wrapper").$(byText("Uttar Pradesh")).click();
+        selectState.$(byText(value)).click();
         return this;
     }
 
     public RegistrationPage setCity(String value) {
         cityButton.click();
-        $("#stateCity-wrapper").$(byText("Agra")).click();
+            $("#stateCity-wrapper").$(byText("Agra")).click();
         return this;
     }
 

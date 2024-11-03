@@ -17,14 +17,16 @@ public class TestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.fastSetValue = false;
         open();
         getWebDriver().manage().window().maximize();
         Configuration.baseUrl = "https://demoqa.com";
+        Configuration.fastSetValue = false;
     }
 
     @AfterEach
     void beforeEach() {
+        Selenide.clearBrowserCookies();
+        Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();
     }
 }

@@ -9,11 +9,11 @@ import pages.components.TestData;
 import static pages.components.TestData.*;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
+
     private final RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void registrationTest() {
-
         registrationPage.openPage()
                 .setFirstName(userName)
                 .setLastName(lastName)
@@ -24,8 +24,8 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .clickHobbieCheckbox()
                 .uploadPicture(picture)
                 .setAddress(address)
-                .setState("Uttar Pradesh")
-                .setCity("Agra")
+                .setState(state)
+                .setCity(city)
                 .submitButton();
 
 
@@ -38,7 +38,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .verifyResult("Hobbies", "Music")
                 .verifyResult("Picture", picture)
                 .verifyResult("Address", address)
-                .verifyResult("State and City", "Uttar Pradesh Agra")
+                .verifyResult("State and City", state + " " + city + " ")
                 .closeModal();
     }
 }
