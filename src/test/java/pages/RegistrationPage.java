@@ -28,7 +28,9 @@ public class RegistrationPage {
             stateButton = $("#state"),
             cityButton = $("#city"),
             submitButton = $("#submit"),
-            selectState = $("#stateCity-wrapper");
+            selectState = $("#stateCity-wrapper"),
+            selectCity = $("#stateCity-wrapper");
+
 
 
     public RegistrationPage openPage() {
@@ -85,14 +87,14 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setState(String value) {
-        stateButton.click();
+        stateButton.scrollTo().click();
         selectState.$(byText(value)).click();
         return this;
     }
 
     public RegistrationPage setCity(String value) {
         cityButton.click();
-            $("#stateCity-wrapper").$(byText("Agra")).click();
+        selectCity.$(byText(value)).click();
         return this;
     }
 
