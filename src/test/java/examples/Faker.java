@@ -4,7 +4,7 @@ package examples;
 public class Faker {
     public static net.datafaker.Faker faker = new net.datafaker.Faker();
 
-    public static String userName() {
+    public static String firstName() {
         return "Test_" + faker.name().firstName();
     }
 

@@ -11,9 +11,16 @@ import static pages.components.TestData.*;
 public class RegistrationWithPageObjectsTests extends TestBase {
 
     private final RegistrationPage registrationPage = new RegistrationPage();
+    private static Faker faker = new Faker();
 
     @Test
     void registrationTest() {
+        String userName = Faker.firstName();
+        String lastName = Faker.lastName();
+        String email = Faker.email();
+        String phone = Faker.phone();
+        String address = Faker.address();
+
         registrationPage.openPage()
                 .setFirstName(userName)
                 .setLastName(lastName)

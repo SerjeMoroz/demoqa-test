@@ -11,10 +11,7 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 
 public class TestBase {
-
-    RegistrationPage registrationPage = new RegistrationPage();
-
-
+    
     @BeforeAll
     static void beforeAll() {
         open();
