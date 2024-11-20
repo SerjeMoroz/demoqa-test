@@ -8,6 +8,7 @@ import java.io.File;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
@@ -23,7 +24,7 @@ public class RegistrationPage {
             phoneNumber = $("#userNumber"),
             birthDate = $("#dateOfBirthInput"),
             closeModalButton = $("#closeLargeModal"),
-            hobbieCheckbox = $("label[for='hobbies-checkbox-3']"),
+            hobbieCheckbox = $(byXpath("//div[@class='col-md-9 col-sm-12']//label[text()='Music']")),
             currentAddress = $("#currentAddress"),
             stateButton = $("#state"),
             cityButton = $("#city"),
