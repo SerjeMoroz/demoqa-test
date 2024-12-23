@@ -4,14 +4,12 @@ import examples.Faker;
 import examples.TestBase;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-import pages.components.TestData;
 
 import static pages.components.TestData.*;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
 
     private final RegistrationPage registrationPage = new RegistrationPage();
-    private static Faker faker = new Faker();
 
     @Test
     void registrationTest() {
