@@ -5,7 +5,7 @@ import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.openqa.selenium.chrome.ChromeOptions;
-import pages.RegistrationPage;
+
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -26,7 +26,7 @@ public class TestBase {
     }
 
     @AfterEach
-    void beforeEach() {
+    void afterEach() {
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
         Selenide.closeWebDriver();
