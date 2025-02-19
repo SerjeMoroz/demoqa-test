@@ -23,7 +23,6 @@ public class TestBase {
 
         Configuration.browser = "chrome";
         Configuration.browserCapabilities = options;
-//        Configuration.browserVersion = "132.0";
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
 
@@ -35,6 +34,5 @@ public class TestBase {
     void tearDown() {
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
-//        Selenide.closeWebDriver();
     }
 }
