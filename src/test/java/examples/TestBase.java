@@ -34,5 +34,6 @@ public class TestBase {
     void tearDown() {
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
+        Selenide.closeWebDriver();
     }
 }
