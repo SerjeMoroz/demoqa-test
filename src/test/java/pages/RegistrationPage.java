@@ -80,7 +80,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadPicture(String value) {
-        $("#uploadPicture").uploadFile(new File("picture/Screenshot.png"));
+        $("#uploadPicture").uploadFile(new File("src/test/resources/Screenshot.png"));
         return this;
     }
 

@@ -4,7 +4,7 @@ import examples.Faker;
 import examples.TestBase;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-import static pages.components.TestData.*;
+import static examples.Faker.*;
 
 public class RegistrationWithPageObjectsTests extends TestBase {
     private final RegistrationPage registrationPage = new RegistrationPage();
