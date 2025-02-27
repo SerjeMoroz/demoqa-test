@@ -22,11 +22,11 @@ public class RegistrationPage {
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
-            gender = $("label[for='gender-radio-3']"),
+            gender = $("#genterWrapper"),
             phoneNumber = $("#userNumber"),
             birthDate = $("#dateOfBirthInput"),
             closeModalButton = $("#closeLargeModal"),
-            hobbieCheckbox = $(byXpath("//div[@class='col-md-9 col-sm-12']//label[text()='Music']")),
+            hobbieCheckbox = $("#hobbiesWrapper"),
             currentAddress = $("#currentAddress"),
             stateButton = $("#state"),
             cityButton = $("#city"),
@@ -60,7 +60,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setGender(String value) {
-        gender.click();
+        gender.$(byText(value)).click();
         return this;
     }
 
@@ -74,8 +74,8 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage clickHobbieCheckbox() {
-        hobbieCheckbox.click();
+    public RegistrationPage clickHobbieCheckbox(String value) {
+        hobbieCheckbox.$(byText(value)).click();
         return this;
     }
 

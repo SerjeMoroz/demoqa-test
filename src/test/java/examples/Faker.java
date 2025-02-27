@@ -28,7 +28,13 @@ public class Faker {
         return faker.address().fullAddress();
     }
 
-    public static String gender = "Other";
+    public static String firstName = Faker.firstName();
+    public static String lastName = Faker.lastName();
+    public static String email = Faker.email();
+    public static String phone = Faker.phone();
+    public static String address = Faker.address();
+    public static String gender = faker.options().option("Male", "Female", "Other");
+    public static String hobbie = faker.options().option("Sports", "Reading", "Music");
     public static String dayOfBirth = "16";
     public static String monthOfBirth = "July";
     public static String yearOfBirth = "2000";

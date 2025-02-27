@@ -1,21 +1,20 @@
 package tests;
 
+
 import examples.Faker;
 import examples.TestBase;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+
 import static examples.Faker.*;
+
 
 public class RegistrationWithPageObjectsTests extends TestBase {
     private final RegistrationPage registrationPage = new RegistrationPage();
+    private final Faker faker = new Faker();
 
     @Test
     void registrationTest() {
-        String firstName = Faker.firstName();
-        String lastName = Faker.lastName();
-        String email = Faker.email();
-        String phone = Faker.phone();
-        String address = Faker.address();
 
         registrationPage.openPage()
                 .setFirstName(firstName)
@@ -24,7 +23,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .setGender(gender)
                 .setPhone(phone)
                 .setBirthDate(dayOfBirth, monthOfBirth, yearOfBirth)
-                .clickHobbieCheckbox()
+                .clickHobbieCheckbox(hobbie)
                 .uploadPicture(picture)
                 .setAddress(address)
                 .setState(state)
@@ -37,7 +36,7 @@ public class RegistrationWithPageObjectsTests extends TestBase {
                 .verifyResult("Gender", gender)
                 .verifyResult("Mobile", phone)
                 .verifyResult("Date of Birth", dayOfBirth + " " + monthOfBirth + "," + yearOfBirth)
-                .verifyResult("Hobbies", "Music")
+                .verifyResult("Hobbies", hobbie)
                 .verifyResult("Picture", picture)
                 .verifyResult("Address", address)
                 .verifyResult("State and City", state + " " + city + " ")
