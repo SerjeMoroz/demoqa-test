@@ -16,7 +16,7 @@ import static examples.Constants.TITLE_TEXT;
 
 public class RegistrationPage {
 
-    RegistrationResultModal registrationresultmodal = new RegistrationResultModal();
+    RegistrationResultModal registrationResultModal = new RegistrationResultModal();
 
     private SelenideElement
             firstNameInput = $("#firstName"),
@@ -107,12 +107,12 @@ public class RegistrationPage {
     }
 
     public RegistrationPage verifyResultsModalAppears () {
-        registrationresultmodal.verifyModalAppears();
+        registrationResultModal.verifyModalAppears();
         return this;
     }
 
     public RegistrationPage verifyResult (String key, String value) {
-        registrationresultmodal.verifyResult(key, value);
+        registrationResultModal.verifyResult(key, value);
         return this;
     }
 
