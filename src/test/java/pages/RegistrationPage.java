@@ -32,7 +32,8 @@ public class RegistrationPage {
             cityButton = $("#city"),
             submitButton = $("#submit"),
             selectState = $("#stateCity-wrapper"),
-            selectCity = $("#stateCity-wrapper");
+            selectCity = $("#stateCity-wrapper"),
+            setSubject =$("#subjectsInput");
 
 
 
@@ -71,6 +72,11 @@ public class RegistrationPage {
     public RegistrationPage setBirthDate(String dayOfBirth, String monthOfBirth, String yearOfBirth) {
         birthDate.click();
         CalendarComponent.setDate(dayOfBirth, monthOfBirth, yearOfBirth);
+        return this;
+    }
+
+    public RegistrationPage setSubject(String value) {
+        setSubject.setValue(value).pressEnter();
         return this;
     }
 
