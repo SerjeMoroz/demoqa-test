@@ -42,6 +42,5 @@ public class Faker {
     public static String yearOfBirth = "2000";
     public static String state = "Uttar Pradesh";
     public static String city  = "Agra";
-    
     public static String picture = "Screenshot.png";
 }
