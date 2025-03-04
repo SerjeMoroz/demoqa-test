@@ -1,5 +1,7 @@
 package examples;
 
+import static java.lang.Math.random;
+
 @SuppressWarnings("ALL")
 public class Faker {
     public static net.datafaker.Faker faker = new net.datafaker.Faker();
@@ -37,8 +39,9 @@ public class Faker {
     public static String hobbie = faker.options().option("Sports", "Reading", "Music");
     public static String subject = faker.options().option("English", "Chemistry", "Computer science", "Commerce", "Economics", "Social studies",
             "Arts", "History", "Maths", "Biology", "Physics", "Accounting", "Civics", "Hindi");
-    public static String dayOfBirth = "16";
-    public static String monthOfBirth = "July";
+    public static String dayOfBirth = String.valueOf((faker.number().numberBetween(1, 29)));
+    public static String [] months = {"January", "February", "March", "April","May", "June", "July", "August", "September", "October", "November", "December"};
+    public static String monthOfBirth = faker.options().option(months);
     public static String yearOfBirth = "2000";
     public static String state = "Uttar Pradesh";
     public static String city  = "Agra";

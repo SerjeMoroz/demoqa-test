@@ -1,18 +1,18 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import examples.Constants;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultModal;
 
 import java.io.File;
+import java.util.Arrays;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 import static examples.Constants.TITLE_TEXT;
+import static examples.Faker.months;
 
 public class RegistrationPage {
 
