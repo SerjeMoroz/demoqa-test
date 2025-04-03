@@ -20,6 +20,7 @@ public class TestBase {
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-search-engine-choice-screen");
         options.addArguments("--disable-features=OptimizationGuideModelDownloading,OptimizationHintsFetching,OptimizationTargetPrediction,OptimizationHints");
+        options.addArguments("--disable.cache");
 
         Configuration.browser = "chrome";
         Configuration.browserCapabilities = options;

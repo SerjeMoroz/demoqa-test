@@ -36,7 +36,6 @@ public class RegistrationPage {
             setSubject =$("#subjectsInput");
 
 
-
     public RegistrationPage openPage() {
         open("/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text(TITLE_TEXT));
@@ -69,6 +68,7 @@ public class RegistrationPage {
         phoneNumber.setValue(value);
         return this;
     }
+
     public RegistrationPage setBirthDate(String dayOfBirth, String monthOfBirth, String yearOfBirth) {
         birthDate.click();
         CalendarComponent.setDate(dayOfBirth, monthOfBirth, yearOfBirth);
@@ -112,12 +112,12 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage verifyResultsModalAppears () {
+    public RegistrationPage verifyResultsModalAppears() {
         registrationResultModal.verifyModalAppears();
         return this;
     }
 
-    public RegistrationPage verifyResult (String key, String value) {
+    public RegistrationPage verifyResult(String key, String value) {
         registrationResultModal.verifyResult(key, value);
         return this;
     }
