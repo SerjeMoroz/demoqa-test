@@ -14,8 +14,8 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class TestBase {
 
-    @BeforeEach
-    void setUp() {
+    @BeforeAll
+    static void setupClass() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-search-engine-choice-screen");
@@ -26,7 +26,10 @@ public class TestBase {
         Configuration.browserCapabilities = options;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.fastSetValue = false;
+    }
 
+    @BeforeEach
+    void setUp() {
         open();
         getWebDriver().manage().window().maximize();
     }
